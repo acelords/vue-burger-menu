@@ -1,6 +1,6 @@
-# vue-burger-menu [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+# Vue Burger Menu [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-[![npm](https://img.shields.io/npm/v/vue-burger-menu.svg?maxAge=3600)](https://www.npmjs.com/package/vue-burger-menu)
+[![npm](https://img.shields.io/npm/v/@acelords/vue-burger-menu.svg?maxAge=3600)](https://www.npmjs.com/package/@acelords/vue-burger-menu)
 
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fvue-burger-menu.netlify.com%2F&via=mbj36&text=Checkout%20vue-burger-menu&hashtags=%23vuejs)
 
@@ -26,20 +26,20 @@ Then open [`localhost:8080`](http://localhost:8080) in a browser
 
 ## Installation
 
-```
-npm install vue-burger-menu --save
+```bash
+npm install @acelords/vue-burger-menu --save
 ```
 
-```
-yarn add vue-burger-menu
+```bash
+yarn add @acelords/vue-burger-menu
 ```
 
 ## Usage
 
 Items should be passed as child elements of the components
 
-```javascript
-import { Slide } from 'vue-burger-menu'  // import the CSS transitions you wish to use, in this case we are using `Slide`
+```js
+import { Slide } from '@acelords/vue-burger-menu'  // import the CSS transitions you wish to use, in this case we are using `Slide`
 
 export default {
     components: {
@@ -50,12 +50,20 @@ export default {
 
 In your template
 
-```
+```vue
 <template>
     <Slide>
       <a id="home" href="#">
         <span>Home</span>
       </a>
+
+      <template v-slot:button>
+        <span class="bm-burger-bars line-style" :style="{top:20 * (index * 2) + '%'}" v-for="(x, index) in 3" :key="index"></span>
+      </template>
+
+      <template v-slot:close>
+        <span v-for="(x, index) in 2" :key="x" class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)'}"></span>
+      </template>
     </Slide>
 </template>
 ```
@@ -84,7 +92,7 @@ Some animation require certain other elements on your page
 
 * Page wrapper - an element wrapping the rest of the content on yur page, placed after the menu component
 
-```javascript
+```js
 <Menu/>
 
 <main id="page-wrap">
@@ -96,7 +104,7 @@ Some animation require certain other elements on your page
 
 * Outer container called `app` - an element containing everything including the menu component
 
-```javascript
+```js
 <div id="app">
     <Menu/>
     <main id="page-wrap">
