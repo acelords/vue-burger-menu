@@ -1,15 +1,15 @@
 {
   "name": "@acelords/vue-burger-menu",
-  "version": "1.0.1",
+  "version": "1.0.7",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-bundle": "vue-cli-service build --target lib --name @acelords/vue-burger-menu ./src/components/index.js"
+    "build-bundle": "vue-cli-service build --target lib --name vue-burger-menu ./src/components/index.js"
   },
   "dependencies": {
-    "vue": "^2.5.17"
+    "vue": "^2.6.11"
   },
   "author": {
     "name": "Lexx YungCarter",
@@ -33,7 +33,7 @@
     "@vue/cli-service": "^3.0.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.6.11"
   },
   "main": "./dist/vue-burger-menu.common.js",
   "license": "MIT",
